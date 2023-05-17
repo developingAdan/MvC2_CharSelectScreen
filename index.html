@@ -5,26 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I wanna take you for a ride!</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/normalize.css">
 </head>
 <body>
+    <div class="big-div">
     <div class="character-select-screen">
         <div class="grid-container">
-            
+
           <div class="grid-item">
             <div class="character">
-                <img src="https://wiki.supercombo.gg/images/2/23/MVC2_ironman_art.png" alt="Roll_Img">
+                <img src="https://wiki.supercombo.gg/images/2/23/MVC2_ironman_art.png" alt="IronMan_Img" data-id="1">
             </div>
           </div>
 
           <div class="grid-item">
             <div class="character">
-                <img src="https://wiki.supercombo.gg/images/2/23/MVC2_ironman_art.png" alt="Roll_Img">
+                <img src="https://static.wikia.nocookie.net/marvelvscapcom/images/3/38/Mvc2-amingo.jpg/revision/latest/smart/width/250/height/250?cb=20080205025431" alt="Amingo_Img" data-id="2">
             </div>  
           </div>
 
-          <div class="grid-item"></div>
-          <div class="grid-item"></div>
+          <div class="grid-item">
+            <div class="character">
+                <img src="https://cdn.mos.cms.futurecdn.net/d6dad75a9918404bb42f6a42d0cfd1c7-1200-80.jpg" alt="Cyclops_Img" data-id="3">
+            </div> 
+          </div>
+
+          <div class="grid-item">
+            <div class="character">
+                <img src="https://www.vhv.rs/dpng/d/439-4398277_capcom-war-machine-png-download-marvel-vs-capcom.png" alt="WarMachine_Img" data-id="4">
+            </div>
+          </div>
+          
+          <div class="grid-item">
+            <div class="character">
+                <img src="https://www.videogamesblogger.com/wp-content/uploads/2009/06/marvel-vs-capcom-2-xbox-360-ps3-juggernaut.jpg" alt="Juggernaut_Img" data-id="5">
+            </div>
+          </div>
+          
+          <div class="grid-item">
+            <div class="character">
+                <img src="https://e7.pngegg.com/pngimages/979/310/png-clipart-marvel-vs-capcom-2-new-age-of-heroes-jill-valentine-marvel-vs-capcom-3-fate-of-two-worlds-resident-evil-ultimate-marvel-vs-capcom-3-marvel-vs-capcom-video-game-fictional-character-thumbnail.png" alt="Jill_Img" data-id="6">
+            </div>
+          </div>
+
+
           <div class="grid-item"></div>
           <div class="grid-item"></div>
           <div class="grid-item"></div>
@@ -32,6 +56,48 @@
           <div class="grid-item"></div>
         </div>
       </div>
+    </div>
+
+    <!-- <div class="character-select">
+        <div class="character">
+          <img src="character1.png" alt="Character 1" data-id="1" />
+        </div>
+        <div class="character">
+          <img src="character2.png" alt="Character 2" data-id="2" />
+        </div>
+        <div class="character">
+          <img src="character3.png" alt="Character 3" data-id="3" />
+        </div>
+        Rest of the character select screen
+      </div> -->
+      
+      <div class="selected-characters">
+        <h2>Player 1</h2>
+            <div id="selected-list"></div>
+      </div>
+
+      <div class="player2-selected-container">
+        <h2>Player 2</h2>
+            <div id="selected-list2"></div>
+      </div>
+      
+
+    <audio id="myAudio">
+        <source src="./04. Mode Menu.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <div class="buttons_div">
+        <button onclick="playAudio()">Play</button>
+        <button id="stopButton">Stop</button>
+
+      </div>
+
+
+      
+      <script src="main.js">
+     
+      </script>
+      
 </body>
 </html>
 
