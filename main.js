@@ -14,11 +14,8 @@ function stopAudio() {
     // console.log("hellooo?")
 }
 
-
-
 const selectedCharacters = [];
 const selectedCharacters2 = [];
-
 
 let player1SelectionComplete = false;
 
@@ -47,14 +44,18 @@ function handleCharacterSelect(event) {
 //   selectedCharacters.push(selectedCharacter);
 
   console.log(`yoooo -- ${selectedCharacters.length}`)
+  console.log(`yoooo2 -- ${selectedCharacters2.length}`)
 
   // Check if the maximum number of characters is reached
   if (selectedCharacters.length === 3) {
-    // Maximum number of characters reached for Player 1, set flag and clear selection array
+    // Maximum number of characters reached for Player 1, set flag
     player1SelectionComplete = true;
     // selectedCharacters.length = 0;
-  } else if (selectedCharacters2.length === 3) {
+  } 
+  
+  if (selectedCharacters2.length === 3) {
     // Maximum number of characters reached for Player 2, do nothing
+    alert('each player has 3 characters!!')
     return;
   }
 
@@ -69,33 +70,6 @@ function handleCharacterSelect(event) {
   updateSelectedList();
   updateSelectedList2();
 }
-
-
-// function handleCharacterSelect2(selectedImage) {
-//     const selectedImg = selectedImage.target;
-//     const selectedId = selectedImg.getAttribute('data-id');
-//     console.log(`this is the second ${selectedId}`)
-  
-//     // Check if character is already selected
-//     const isSelected = selectedCharacters2.find((character) => character.id === selectedId);
-//     if (isSelected) {
-//       // Character is already selected, do nothing or show an error message
-//       return;
-//     }
-  
-//     // Check if the maximum number of characters is reached
-//     if (selectedCharacters2.length == 3) {
-//       // Maximum number of characters reached, do nothing or show an error message
-//       return;
-//     }
-  
-//     // Add selected character to the list
-//     const selectedCharacter = { id: selectedId, image: selectedImg.src };
-//     selectedCharacters2.push(selectedCharacter);
-  
-//     // Update the selected characters list on the page
-//     updateSelectedList2();
-//   }
 
 function updateSelectedList() {
   const selectedList = document.getElementById('selected-list');

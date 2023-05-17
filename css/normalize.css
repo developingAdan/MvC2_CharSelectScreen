@@ -425,11 +425,18 @@ button {
   /* cursor: pointer; */
 }
 
-.selected-characters {
+.selected-characters-container {
   /* Styles for the selected characters section */
+  border: 2px solid red;
+  display: flex;
+  justify-content: space-around;
   
 }
 
 .selected-characters img {
+  width: 10%;
+}
+
+.player2-selected-container img {
   width: 10%;
 }
