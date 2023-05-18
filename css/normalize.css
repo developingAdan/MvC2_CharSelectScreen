@@ -373,18 +373,39 @@ template {
 }
 
 .grid-item {
-  /* width: 33.33%; */
-  /* height: 160px; */
   background-color: #444;
   border: 2px solid yellow;
+  position: relative;
+  overflow: hidden;
 }
 
 .grid-item:hover {
-  /* width: 33.33%; */
-  /* height: 160px; */
-  background-color: #444;
-  border: 2px solid blue;;
+  width: 80px;
+  height: 80px;
+  border: 2px solid blue;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  overflow: hidden;
+   /* Add this line to hide the image overflow */
 }
+
+.grid-item:hover img {
+  animation: none; /* Add this line to disable animation on the image */
+}
+
+img:hover {
+  animation: none !important;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(3%, 3%) rotate(0deg);
+  }
+  100% {
+    transform: translate(3%, 3%) rotate(360deg);
+  }
+}
+
 
 .character {
   display: inline-block;
@@ -403,6 +424,12 @@ template {
 .character:hover img {
   /* border: 2px solid red; */
 }
+
+.character img.selected {
+  /* Add your desired CSS styles for the selected characters here */
+  border: 2px solid green;
+}
+
 
 .buttons_div {
   outline: 2px solid orange;
@@ -427,10 +454,22 @@ button {
 
 .selected-characters-container {
   /* Styles for the selected characters section */
-  border: 2px solid red;
+  /* border: 2px solid pink; */
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   
+}
+
+.selected-characters {
+  outline: 2px solid purple;
+  text-align: center;
+  width: 50%;
+}
+
+.player2-selected-container {
+  outline: 2px solid purple;
+  text-align: center;
+  width: 50%;
 }
 
 .selected-characters img {
@@ -439,4 +478,14 @@ button {
 
 .player2-selected-container img {
   width: 10%;
+}
+
+#selected-list {
+  outline: 2px solid lightgreen;
+  /* width: 75%; */
+}
+
+#selected-list2 {
+  outline: 2px solid lightgreen;
+  /* width: 75%; */
 }

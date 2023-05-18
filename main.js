@@ -20,7 +20,8 @@ const selectedCharacters2 = [];
 let player1SelectionComplete = false;
 
 // Add click event listeners to character images
-const characterImages = document.querySelectorAll('.character img');
+const characterImages = document.querySelectorAll('.grid-item');
+console.log(`character images are -- ${characterImages}`)
 characterImages.forEach((img) => {
   img.addEventListener('click', handleCharacterSelect);
 });
@@ -30,6 +31,9 @@ console.log(characterImages)
 function handleCharacterSelect(event) {
   const selectedImg = event.target;
   const selectedId = selectedImg.getAttribute('data-id');
+  console.log(`this is the event.target -- ${selectedImg}`)
+//   const getContainer = 
+  
   console.log(`this is the first handleCharacter function running ${selectedId}`)
 
   // Check if character is already selected
@@ -69,6 +73,9 @@ function handleCharacterSelect(event) {
   // Update the selected characters list on the page
   updateSelectedList();
   updateSelectedList2();
+
+  // Add CSS class to the selected character image
+  selectedImg.classList.add('selected-characters-container');
 }
 
 function updateSelectedList() {
