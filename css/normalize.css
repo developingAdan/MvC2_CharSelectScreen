@@ -384,7 +384,7 @@ template {
   height: 80px;
   border: 2px solid blue;
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: spin 1.5s linear infinite;
   overflow: hidden;
    /* Add this line to hide the image overflow */
 }
@@ -399,10 +399,10 @@ img:hover {
 
 @keyframes spin {
   0% {
-    transform: translate(3%, 3%) rotate(0deg);
+    transform: translate(7%, 7%) rotate(0deg);
   }
   100% {
-    transform: translate(3%, 3%) rotate(360deg);
+    transform: translate(7%, 7%) rotate(360deg);
   }
 }
 

@@ -21,45 +21,75 @@ let player1SelectionComplete = false;
 
 // Add click event listeners to character images
 const characterImages = document.querySelectorAll('.grid-item');
-console.log(`character images are -- ${characterImages}`)
+// console.log(`character images are -- ${characterImages}`)
 characterImages.forEach((img) => {
   img.addEventListener('click', handleCharacterSelect);
 });
 
 console.log(characterImages)
 
+function updateSelectedList() {
+  const selectedList = document.getElementById('selected-list');
+  selectedList.innerHTML = '';
+
+  selectedCharacters.forEach((character) => {
+    const listItem = document.createElement('div');
+    const img = document.createElement('img');
+    img.src = character.image;
+    img.alt = 'Selected Character';
+    listItem.appendChild(img);
+    selectedList.appendChild(listItem);
+  });
+  console.log(`selectedCharLength -- ${JSON.stringify(Number(selectedCharacters[0].id))}`)
+}
+
+function updateSelectedList2() {
+    const selectedList = document.getElementById('selected-list2');
+    selectedList.innerHTML = '';
+  
+    selectedCharacters2.forEach((character) => {
+      const listItem = document.createElement('div');
+      const img = document.createElement('img');
+      img.src = character.image;
+      img.alt = 'Selected Character';
+      listItem.appendChild(img);
+      selectedList.appendChild(listItem);
+    });
+    console.log(`selectedCharLength2 -- ${selectedCharacters2.length}`)
+  }
+
 function handleCharacterSelect(event) {
   const selectedImg = event.target;
   const selectedId = selectedImg.getAttribute('data-id');
-  console.log(`this is the event.target -- ${selectedImg}`)
-//   const getContainer = 
   
-  console.log(`this is the first handleCharacter function running ${selectedId}`)
-
-  // Check if character is already selected
-  const isSelected = selectedCharacters.find((character) => character.id === selectedId);
-  if (isSelected) {
-    // Character is already selected, do nothing or show an error message
+  // Check if character is already selected for Player 2
+  const isSelected2 = selectedCharacters2.find((character) => character.id === selectedId);
+  if (isSelected2) {
+    // Character is already selected for Player 2, do nothing or show an error message
+    console.log(`Character already selected for Player 2`);
     return;
   }
-
+  
+  // Check if character is already selected for Player 1
+  const isSelected1 = selectedCharacters.find((character) => character.id === selectedId);
+  if (isSelected1) {
+    // Character is already selected for Player 1, remove it from Player 1's selection
+    console.log(`Character already selected for Player 1`);
+  }
+  
   // Add selected character to the list
   const selectedCharacter = { id: selectedId, image: selectedImg.src };
-//   selectedCharacters.push(selectedCharacter);
-
-  console.log(`yoooo -- ${selectedCharacters.length}`)
-  console.log(`yoooo2 -- ${selectedCharacters2.length}`)
 
   // Check if the maximum number of characters is reached
   if (selectedCharacters.length === 3) {
     // Maximum number of characters reached for Player 1, set flag
     player1SelectionComplete = true;
-    // selectedCharacters.length = 0;
   } 
   
   if (selectedCharacters2.length === 3) {
-    // Maximum number of characters reached for Player 2, do nothing
-    alert('each player has 3 characters!!')
+    // Maximum number of characters reached for Player 2
+    alert('Each player has 3 characters!');
+    // do something here! (probably?) maybe give a "Play" button option?
     return;
   }
 
@@ -75,35 +105,10 @@ function handleCharacterSelect(event) {
   updateSelectedList2();
 
   // Add CSS class to the selected character image
-  selectedImg.classList.add('selected-characters-container');
+  selectedImg.classList.add('selected-characters-container'); // probably a better place to put this
 }
 
-function updateSelectedList() {
-  const selectedList = document.getElementById('selected-list');
-  selectedList.innerHTML = '';
 
-  selectedCharacters.forEach((character) => {
-    const listItem = document.createElement('div');
-    const img = document.createElement('img');
-    img.src = character.image;
-    img.alt = 'Selected Character';
-    listItem.appendChild(img);
-    selectedList.appendChild(listItem);
-  });
-}
 
-function updateSelectedList2() {
-    const selectedList = document.getElementById('selected-list2');
-    selectedList.innerHTML = '';
   
-    selectedCharacters2.forEach((character) => {
-      const listItem = document.createElement('div');
-      const img = document.createElement('img');
-      img.src = character.image;
-      img.alt = 'Selected Character';
-      listItem.appendChild(img);
-      selectedList.appendChild(listItem);
-    });
-  }
-
 
